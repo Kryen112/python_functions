@@ -65,11 +65,11 @@ def check_input_types(numbers, target):
     if type(numbers) is not list:
         raise TypeError("The 'numbers' parameter must be a list, but got " + str(type(numbers)) + " instead.")
     
-    if not all(map(lambda x: type(x) in [int, float], numbers)):
+    if not all(map(lambda x: type(x) is int, numbers)):
         raise TypeError("All elements in the 'numbers' list must be integers, but got " + 
-                        str([type(x) for x in numbers if type(x) not in [int, float]]) + " instead.")
+                        str([type(x) for x in numbers if type(x) is not int]) + " instead.")
     
-    if type(target) not in [int, float]:
+    if type(target) is not int:
         raise TypeError("The 'target' parameter must be an integer, but got " + str(type(target)) + " instead.")
 
 class TestTwoSum(unittest.TestCase):
